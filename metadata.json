@@ -1,0 +1,5 @@
+{
+  "name": "Lumina Creative Muse",
+  "description": "A creative writing interface that analyzes images to ghostwrite stories, features a text-to-speech narrator, and includes general AI chat and image analysis tools.",
+  "requestFramePermissions": []
+}
