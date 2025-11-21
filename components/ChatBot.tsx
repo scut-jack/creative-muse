@@ -43,15 +43,15 @@ export const ChatBot: React.FC = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto h-[calc(100vh-180px)] flex flex-col bg-slate-800/50 rounded-2xl border border-slate-700 shadow-xl overflow-hidden">
-      <div className="p-4 border-b border-slate-700 bg-slate-900/50">
-        <h2 className="text-lg font-semibold text-slate-200 flex items-center gap-2">
+    <div className="max-w-3xl mx-auto h-[calc(100dvh-160px)] md:h-[calc(100vh-180px)] flex flex-col bg-slate-800/50 rounded-2xl border border-slate-700 shadow-xl overflow-hidden">
+      <div className="p-3 md:p-4 border-b border-slate-700 bg-slate-900/50">
+        <h2 className="text-base md:text-lg font-semibold text-slate-200 flex items-center gap-2">
             <Bot className="w-5 h-5 text-teal-400" />
             Gemini Chat
         </h2>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-4">
         {messages.length === 0 && (
             <div className="h-full flex items-center justify-center text-slate-500">
                 <p>Ask me anything...</p>
@@ -59,7 +59,7 @@ export const ChatBot: React.FC = () => {
         )}
         {messages.map((msg, idx) => (
           <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[80%] rounded-2xl px-4 py-3 flex gap-3 ${
+            <div className={`max-w-[85%] md:max-w-[80%] rounded-2xl px-4 py-3 flex gap-3 ${
                 msg.role === 'user' 
                 ? 'bg-teal-600/20 text-teal-100 border border-teal-600/50 rounded-tr-none' 
                 : 'bg-slate-700/50 text-slate-200 border border-slate-600 rounded-tl-none'
@@ -82,14 +82,14 @@ export const ChatBot: React.FC = () => {
         <div ref={bottomRef} />
       </div>
 
-      <form onSubmit={handleSend} className="p-4 border-t border-slate-700 bg-slate-900/30">
+      <form onSubmit={handleSend} className="p-3 md:p-4 border-t border-slate-700 bg-slate-900/30">
         <div className="relative flex items-center">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
-            className="w-full bg-slate-950 border border-slate-700 rounded-xl pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500/50 text-slate-200 placeholder-slate-500"
+            className="w-full bg-slate-950 border border-slate-700 rounded-xl pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500/50 text-slate-200 placeholder-slate-500 text-sm md:text-base"
             disabled={isLoading}
           />
           <button

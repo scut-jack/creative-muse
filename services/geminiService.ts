@@ -14,7 +14,7 @@ export const generateStory = async (imageBase64: string, mimeType: string): Prom
   const ai = getClient();
   
   // System instruction to set the persona
-  const systemInstruction = "You are a master creative writer and novelist. Your goal is to analyze visual scenes and write captivating, atmospheric opening paragraphs for stories inspired by them. Focus on mood, sensory details, and intrigue.";
+  const systemInstruction = "You are a master creative writer and novelist. Your goal is to analyze visual scenes and write captivating, atmospheric opening paragraphs for stories inspired by them. Focus on mood, sensory details, and intrigue. You MUST write the story in Chinese.";
 
   const response = await ai.models.generateContent({
     model: 'gemini-3-pro-preview',
@@ -27,7 +27,7 @@ export const generateStory = async (imageBase64: string, mimeType: string): Prom
           },
         },
         {
-          text: "Analyze the mood and scene of this image. Then, ghostwrite an opening paragraph to a story set in this world. Keep it under 200 words.",
+          text: "Analyze the mood and scene of this image. Then, ghostwrite an opening paragraph to a story set in this world. Keep it under 200 words. Please write the story in Chinese.",
         },
       ],
     },

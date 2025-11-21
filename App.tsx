@@ -13,8 +13,8 @@ const App: React.FC = () => {
       {/* Header */}
       <header className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-col md:flex-row items-center justify-between py-3 md:py-0 md:h-16 gap-3 md:gap-0">
+            <div className="flex items-center gap-3 self-start md:self-auto">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg shadow-purple-500/20">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
@@ -23,24 +23,24 @@ const App: React.FC = () => {
               </h1>
             </div>
             
-            <nav className="flex gap-1">
+            <nav className="flex w-full md:w-auto gap-1 bg-slate-800/50 md:bg-transparent p-1 md:p-0 rounded-xl overflow-x-auto">
                 <button 
                     onClick={() => setMode(AppMode.STORY_WRITER)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all ${mode === AppMode.STORY_WRITER ? 'bg-slate-800 text-white' : 'text-slate-400 hover:text-white hover:bg-slate-800/50'}`}
+                    className={`flex-1 md:flex-none px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium flex items-center justify-center gap-2 transition-all whitespace-nowrap ${mode === AppMode.STORY_WRITER ? 'bg-slate-700 md:bg-slate-800 text-white shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-800/50'}`}
                 >
                     <Feather className="w-4 h-4" />
                     Storyteller
                 </button>
                 <button 
                     onClick={() => setMode(AppMode.IMAGE_ANALYSIS)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all ${mode === AppMode.IMAGE_ANALYSIS ? 'bg-slate-800 text-white' : 'text-slate-400 hover:text-white hover:bg-slate-800/50'}`}
+                    className={`flex-1 md:flex-none px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium flex items-center justify-center gap-2 transition-all whitespace-nowrap ${mode === AppMode.IMAGE_ANALYSIS ? 'bg-slate-700 md:bg-slate-800 text-white shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-800/50'}`}
                 >
                     <ImageIcon className="w-4 h-4" />
                     Analyzer
                 </button>
                 <button 
                     onClick={() => setMode(AppMode.CHAT)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all ${mode === AppMode.CHAT ? 'bg-slate-800 text-white' : 'text-slate-400 hover:text-white hover:bg-slate-800/50'}`}
+                    className={`flex-1 md:flex-none px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium flex items-center justify-center gap-2 transition-all whitespace-nowrap ${mode === AppMode.CHAT ? 'bg-slate-700 md:bg-slate-800 text-white shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-800/50'}`}
                 >
                     <MessageSquare className="w-4 h-4" />
                     Chat
@@ -51,7 +51,7 @@ const App: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 pb-20">
         {mode === AppMode.STORY_WRITER && (
             <div className="animate-in fade-in zoom-in duration-300">
                 <StoryWriter />
